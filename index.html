@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algo Especial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 50px;
+        }
+        h1 {
+            font-size: 3em;
+            color: #ff6f61;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        .heart {
+            color: #e63946;
+            font-size: 5em;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #d44a3d;
+        }
+        .photos {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            color: white;
+        }
+        .photos img {
+            width: 150px;
+            height: auto;
+            margin: 10px;
+            border-radius: 10px;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Para Quem Torna Tudo Melhor</h1>
+        <p>Quis fazer algo diferente para mostrar o quanto você é especial. Espero que você tenha gostado dessa pequena surpresa!!!</p>
+        <div class="heart">❤️</div>
+        <p>Algo simples, mas feito com carinho, porque momentos com você sempre merecem um toque especial.</p>
+        <button onclick="showPhotos()">Clique aqui!</button>
+    </div>
+    <div class="photos" id="photoContainer">
+        <h2>❤️ Nossas memórias ❤️</h2>
+        <img src="Foto1.jpg" alt="Foto 1">
+        <img src="Foto3.jpg" alt="Foto 2">
+        <img src="Foto2.jpg" alt="Foto 3">
+    </div>
+    <script>
+        function showPhotos() {
+            alert('Gostei de fazer isso pra você! 😘');
+            const photoContainer = document.getElementById('photoContainer');
+            photoContainer.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
