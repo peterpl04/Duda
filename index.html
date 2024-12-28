@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <title>Mural P+E</title>
     <style>
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5em;
+            color: #ff6f61; /* Rosa coral */
+            margin-bottom: 5px;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            background: linear-gradient(135deg, #ffe2e1, #f7d1cd); /* Rosa claro para coral suave */
             color: #333;
             text-align: center;
             margin: 0;
@@ -16,22 +24,22 @@
         .container {
             padding: 50px;
         }
-        h1 {
-            font-size: 3em;
-            color: #ff6f61;
-            margin-bottom: 10px;
-        }
         p {
             font-size: 1.2em;
             line-height: 1.6;
+            color: #5a3d57; /* Roxo suave */
+        }
+        .highlight {
+            color: #a7063b; /* Rosa vibrante */
+            font-weight: bold;
         }
         .heart {
-            color: #e63946;
+            color: #ff80ab; /* Rosa vibrante */
             font-size: 5em;
             margin: 20px 0;
         }
         button {
-            background-color: #ff6f61;
+            background-color: #ff6f61; /* Rosa coral */
             color: white;
             border: none;
             padding: 10px 20px;
@@ -41,15 +49,23 @@
             transition: background-color 0.3s ease;
         }
         button:hover {
-            background-color: #d44a3d;
+            background-color: #f48fb1; /* Rosa suave */
         }
         .photos {
             display: none;
             margin-top: 20px;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(255, 255, 255, 0.8); /* Fundo branco suave */
             border-radius: 15px;
-            color: white;
+            color: #5a3d57; /* Roxo suave */
+            opacity: 0;
+            transform: scale(0.5);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        .photos.show {
+            display: block;
+            opacity: 1;
+            transform: scale(1);
         }
         .photos img {
             width: 100%;
@@ -57,7 +73,7 @@
             height: auto;
             margin: 10px;
             border-radius: 10px;
-            border: 2px solid white;
+            border: 2px solid #ff80ab; /* Rosa vibrante */
         }
         @media (max-width: 768px) {
             h1 {
@@ -72,9 +88,9 @@
 <body>
     <div class="container">
         <h1>Mural</h1>
-        <p>Dedicado para nós, feito para contar nossa história.</p>
+        <p>Dedicado para nós, feito para contar <span class="highlight">nossa história</span>.</p>
         <div class="heart">❤️</div>
-        <p>Algo simples, mas feito com carinho, porque tudo com você sempre merece um toque especial.</p>
+        <p>Feito com carinho, porque tudo com você sempre merece um toque especial.</p>
         <button onclick="showPhotos()">Clique aqui!</button>
     </div>
     <div class="photos" id="photoContainer">
@@ -84,15 +100,14 @@
         <img src="Foto2.jpg" alt="Foto 3">
         <img src="Foto4.jpg" alt="Foto 4">
         <img src="Foto5.jpg" alt="Foto 5">
-        <p>"Eu sou infinitamente menor do que eu pensava ser, mas eu sou infinitamente maior por ter você."</p>
+        <p><strong>"Eu sou infinitamente menor do que eu pensava ser, mas eu sou infinitamente maior por ter você."</strong></p>
     </div>
     <script>
         function showPhotos() {
-            alert('Gostei de fazer isso pra você! 😘');
             const photoContainer = document.getElementById('photoContainer');
-            photoContainer.style.display = 'block';
+            photoContainer.classList.add('show');
         }
-        
+
         setInterval(() => {
             const heart = document.createElement('div');
             heart.textContent = '❤️';
