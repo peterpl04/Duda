@@ -68,6 +68,14 @@
         }
 
         /* Flexbox para alinhar as imagens lado a lado */
+        .photos .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px; /* Espaço entre as imagens */
+            flex-wrap: wrap;
+            margin: 0 auto;
+        }
+
         .photos img {
             width: 100%;
             max-width: 200px;
@@ -75,14 +83,35 @@
             margin: 10px;
             border-radius: 10px;
             border: 2px solid #f44336; /* Vermelho intenso */
+            position: relative;
+            cursor: pointer; /* Indica que a imagem é interativa */
+            transition: 0.3s ease-in-out;
         }
 
-        .photos .image-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px; /* Espaço entre as imagens */
-            flex-wrap: wrap;
-            margin: 0 auto;
+        /* Estilo da imagem quando for clicada */
+        .clicked img {
+            opacity: 0.7; /* Foto ficará com opacidade reduzida */
+        }
+
+        /* Descrição sobreposta diretamente na foto */
+        .image-description {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Centraliza a descrição na imagem */
+            background-color: rgba(255, 255, 255, 0.7); /* Fundo branco semi-transparente */
+            color: black;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            display: none; /* Inicialmente, a descrição está oculta */
+            max-width: 90%; /* Limita o tamanho da descrição */
+            text-align: center;
+        }
+
+        /* Exibir a descrição após o clique */
+        .image-item.clicked .image-description {
+            display: block; /* Exibe a descrição quando a imagem for clicada */
         }
 
         /* Animação de onda mais suave */
@@ -122,16 +151,31 @@
         <p>Dedicado para nós, feito para contar <span class="highlight">nossa história</span>.</p>
         <div class="heart">❤️</div>
         <p>Feito com carinho, porque tudo com você sempre merece um toque especial.</p>
-        <button onclick="showPhotos()">Clique aqui!</button>
+        <button onclick="showPhotos()">Revelar Mural</button>
     </div>
     <div class="photos" id="photoContainer">
-        <h2>❤️ Nossas memórias ❤️</h2>
+        <h2>Nossas memórias</h2>
         <div class="image-container">
-            <img src="Foto1.jpg" alt="Foto 1">
-            <img src="Foto3.jpg" alt="Foto 2">
-            <img src="Foto2.jpg" alt="Foto 3">
-            <img src="Foto4.jpg" alt="Foto 4">
-            <img src="Foto5.jpg" alt="Foto 5">
+            <div class="image-item" onclick="toggleDescription(this)">
+                <img src="Foto1.jpg" alt="Foto 1">
+                <div class="image-description">Nosso primeiro encontro!!!!</div>
+            </div>
+            <div class="image-item" onclick="toggleDescription(this)">
+                <img src="Foto2.jpg" alt="Foto 2">
+                <div class="image-description">Foto de velhinhos em cima da ponte</div>
+            </div>
+            <div class="image-item" onclick="toggleDescription(this)">
+                <img src="Foto3.jpg" alt="Foto 3">
+                <div class="image-description">Primeira foto do nosso selinho!</div>
+            </div>
+            <div class="image-item" onclick="toggleDescription(this)">
+                <img src="Foto4.jpg" alt="Foto 4">
+                <div class="image-description">"Deixa eu tirar uma foto aqui pra minha mãe..."</div>
+            </div>
+            <div class="image-item" onclick="toggleDescription(this)">
+                <img src="Foto5.jpg" alt="Foto 5">
+                <div class="image-description">Pedro lindo e perfeito com seu grande amigo Chico</div>
+            </div>
         </div>
         <p><strong class="wave-text">"Se você é uma onda quebrando, talvez eu possa ser a costa"</strong></p>
     </div>
@@ -143,6 +187,11 @@
             setTimeout(() => {
                 photoContainer.classList.add('show'); // Inicia o efeito fade-in
             }, 10); // Pequeno atraso para permitir que o display block seja aplicado antes da animação
+        }
+
+        function toggleDescription(element) {
+            // Alterna a classe "clicked" para mostrar a descrição e modificar a imagem
+            element.classList.toggle('clicked');
         }
 
         setInterval(() => {
