@@ -43,7 +43,6 @@
             margin: 20px 0;
         }
 
-        /* Novo design para o botão */
         button {
             background-color: #d81b60;
             color: white;
@@ -239,7 +238,6 @@
                 <div class="image-description">Pedro e o seu grande amigo Chico</div>
             </div>
         </div>
-        <!-- <p><strong class="wave-text">"Se você é uma onda quebrando, talvez eu possa ser a costa"</strong></p> -->
     </div>
 
     <script>
@@ -249,6 +247,13 @@
             setTimeout(() => {
                 photoContainer.classList.add('show');
             }, 10);
+
+            setTimeout(() => {
+                window.scrollTo({
+                    top: window.pageYOffset + 200, // Rolando 200px para baixo
+                    behavior: 'smooth'  // Adicionando animação suave
+                });
+            }, 100); // Atraso de 100ms para garantir que a transição de "show" aconteça primeiro
         }
 
         function toggleDescription(element) {
