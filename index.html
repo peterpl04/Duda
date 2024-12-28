@@ -52,17 +52,26 @@
             color: white;
         }
         .photos img {
-            width: 150px;
+            width: 100%;
+            max-width: 150px;
             height: auto;
             margin: 10px;
             border-radius: 10px;
             border: 2px solid white;
         }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .photos img {
+                max-width: 100px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Para Quem Torna Tudo Melhor</h1>
+        <h1>Nossa História</h1>
         <p>Quis fazer algo diferente para mostrar o quanto você é especial. Espero que você tenha gostado dessa pequena surpresa!!!</p>
         <div class="heart">❤️</div>
         <p>Algo simples, mas feito com carinho, porque momentos com você sempre merecem um toque especial.</p>
@@ -73,6 +82,7 @@
         <img src="Foto1.jpg" alt="Foto 1">
         <img src="Foto3.jpg" alt="Foto 2">
         <img src="Foto2.jpg" alt="Foto 3">
+        <p>"Eu sou infinitamente menor do que eu pensava ser, mas eu sou infinitamente maior por ter você."</p>
     </div>
     <script>
         function showPhotos() {
