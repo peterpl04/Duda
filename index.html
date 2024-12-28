@@ -37,10 +37,38 @@
             font-weight: bold;
         }
 
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.2);
+            }
+            50% {
+                transform: scale(1);
+            }
+        }
+
         .heart {
+            position: relative;
             color: #f44336;
             font-size: 5em;
             margin: 20px 0;
+            animation: heartbeat 1s infinite;
+            animation-timing-function: ease-in-out;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .heart-text {
+            position: absolute;
+            font-size: 0.35em; /* Tamanho relativo ao coração */
+            color: rgb(255, 255, 255); /* Cor do texto */
+            font-weight: bold;
+            /* font-family: 'Arial', sans-serif; */
+            font-family: 'Dancing Script', cursive;
+            pointer-events: none; /* Evita interações com o texto */
         }
 
         button {
@@ -186,32 +214,23 @@
             }
         }
 
-        .photos .image-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .photos .image-item {
-            width: calc(20% - 15px);
-            margin-bottom: 15px;
-        }
-
         @media (max-width: 768px) {
             .photos .image-item {
                 width: calc(50% - 15px);
             }
         }
-
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Mural</h1>
         <p>Dedicado para nós. Um espaço especial para guardar <span class="highlight">nossas memórias</span>.</p>
-        <div class="heart">❤️</div>
+        <div class="heart">
+            ❤️
+            <span class="heart-text">P+E</span>
+        </div>
         <p>Feito com carinho, porque tudo com você sempre merece um toque especial.</p>
+
         <button class="reveal-button" onclick="showPhotos()">Revelar Mural</button>
     </div>
     <div class="photos" id="photoContainer">
@@ -250,10 +269,10 @@
 
             setTimeout(() => {
                 window.scrollTo({
-                    top: window.pageYOffset + 200, // Rolando 200px para baixo
-                    behavior: 'smooth'  // Adicionando animação suave
+                    top: window.pageYOffset + 200,
+                    behavior: 'smooth'
                 });
-            }, 100); // Atraso de 100ms para garantir que a transição de "show" aconteça primeiro
+            }, 100);
         }
 
         function toggleDescription(element) {
