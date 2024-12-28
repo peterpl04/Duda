@@ -136,15 +136,24 @@
             display: inline-block;
             animation: wave 2s ease-in-out infinite;
         }
+        .photos .image-container {
+            display: flex;
+            flex-wrap: wrap; /* Permite que as imagens se movam para a linha seguinte */
+            justify-content: center; /* Alinha as imagens no centro */
+            gap: 15px; /* Espaço entre as imagens */
+        }
+
+        .photos .image-item {
+            width: calc(20% - 15px); /* Cada imagem ocupará 20% da largura da linha */
+            margin-bottom: 15px; /* Espaço entre as linhas */
+        }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 3em;
-            }
-            .photos img {
-                max-width: 150px;
+            .photos .image-item {
+                width: calc(50% - 15px); /* Imagens ocuparão metade da largura em telas menores */
             }
         }
+
     </style>
 </head>
 <body>
@@ -156,7 +165,7 @@
         <button onclick="showPhotos()">Revelar Mural</button>
     </div>
     <div class="photos" id="photoContainer">
-        <h2>Nossas memórias</h2>
+        <h2>Memórias</h2>
         <div class="image-container">
             <div class="image-item" onclick="toggleDescription(this)">
                 <img src="Foto1.jpg" alt="Foto 1">
@@ -176,7 +185,7 @@
             </div>
             <div class="image-item" onclick="toggleDescription(this)">
                 <img src="Foto5.jpg" alt="Foto 5">
-                <div class="image-description">Pedro com seu grande amigo Chico</div>
+                <div class="image-description">Pedro e o seu grande amigo Chico</div>
             </div>
         </div>
         <p><strong class="wave-text">"Se você é uma onda quebrando, talvez eu possa ser a costa"</strong></p>
