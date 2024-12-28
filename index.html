@@ -9,13 +9,13 @@
         h1 {
             font-family: 'Dancing Script', cursive;
             font-size: 5em;
-            color: #d32f2f; /* Vermelho escuro */
+            color: #d32f2f; 
             margin-bottom: 5px;
         }
 
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #ffebee, #ef9a9a); /* Gradiente suave de rosa claro para vermelho suave */
+            background: linear-gradient(135deg, #ffebee, #ef9a9a); 
             color: #333;
             text-align: center;
             margin: 0;
@@ -27,19 +27,19 @@
         p {
             font-size: 1.2em;
             line-height: 1.6;
-            color: #c2185b; /* Rosa vibrante */
+            color: #c2185b; 
         }
         .highlight {
-            color: #880e4f; /* Rosa escuro */
+            color: #880e4f; 
             font-weight: bold;
         }
         .heart {
-            color: #f44336; /* Vermelho intenso */
+            color: #f44336; 
             font-size: 5em;
             margin: 20px 0;
         }
         button {
-            background-color: #c2185b; /* Rosa vibrante */
+            background-color: #c2185b; 
             color: white;
             border: none;
             padding: 10px 20px;
@@ -49,15 +49,15 @@
             transition: background-color 0.3s ease;
         }
         button:hover {
-            background-color: #d81b60; /* Rosa mais intenso */
+            background-color: #d81b60; 
         }
         .photos {
             display: none;
             margin-top: 20px;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.9); /* Fundo branco suave */
+            background: rgba(255, 255, 255, 0.9); 
             border-radius: 15px;
-            color: #c2185b; /* Rosa vibrante */
+            color: #c2185b; 
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
@@ -67,11 +67,10 @@
             opacity: 1;
         }
 
-        /* Flexbox para alinhar as imagens lado a lado */
         .photos .image-container {
             display: flex;
             justify-content: center;
-            gap: 15px; /* Espaço entre as imagens */
+            gap: 15px; 
             flex-wrap: wrap;
             margin: 0 auto;
         }
@@ -82,18 +81,17 @@
             height: auto;
             margin: 10px;
             border-radius: 10px;
-            border: 2px solid #f44336; /* Vermelho intenso */
+            border: 2px solid #f44336; 
             position: relative;
-            cursor: pointer; /* Indica que a imagem é interativa */
+            cursor: pointer; 
             transition: 0.3s ease-in-out;
         }
 
-        /* Estilo da imagem quando for clicada */
+       
         .clicked img {
-            opacity: 0.7; /* Foto ficará com opacidade reduzida */
+            opacity: 0.7; 
         }
 
-        /* Descrição sobreposta diretamente na foto */
         .image-item {
             position: relative; /* Necessário para o posicionamento da descrição */
             display: inline-block;
@@ -103,20 +101,19 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%); /* Centraliza a descrição na imagem */
-            background-color: rgba(255, 255, 255, 0.7); /* Fundo branco semi-transparente */
+            transform: translate(-50%, -50%); /* centraliza no meio */
+            background-color: rgba(255, 255, 255, 0.7); /* Fundinho semi-transparente*/
             color: black;
-            padding: 15px;
-            border-radius: 5px;
-            font-size: 1.2em;
-            display: none; /* Inicialmente, a descrição está oculta */
-            max-width: 90%; /* Limita o tamanho da descrição */
+            padding: 5px;
+            border-radius: 10px;
+            font-size: 1em;
+            display: none; 
+            max-width: 100%; 
             text-align: center;
         }
 
-        /* Exibir a descrição após o clique */
         .image-item.clicked .image-description {
-            display: block; /* Exibe a descrição quando a imagem for clicada */
+            display: block; /
         }
 
         /* Animação de onda mais suave */
@@ -195,7 +192,6 @@
         }
 
         function toggleDescription(element) {
-            // Alterna a classe "clicked" para mostrar a descrição e modificar a imagem
             element.classList.toggle('clicked');
         }
 
