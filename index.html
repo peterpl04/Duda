@@ -59,28 +59,59 @@
             border-radius: 15px;
             color: #c2185b; /* Rosa vibrante */
             opacity: 0;
-            transform: scale(0.5);
-            transition: opacity 1s ease, transform 1s ease;
+            transition: opacity 1s ease-in-out;
         }
+
         .photos.show {
             display: block;
             opacity: 1;
-            transform: scale(1);
         }
+
+        /* Flexbox para alinhar as imagens lado a lado */
         .photos img {
             width: 100%;
-            max-width: 150px;
+            max-width: 200px;
             height: auto;
             margin: 10px;
             border-radius: 10px;
             border: 2px solid #f44336; /* Vermelho intenso */
         }
+
+        .photos .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px; /* Espaço entre as imagens */
+            flex-wrap: wrap;
+            margin: 0 auto;
+        }
+
+        /* Animação de onda mais suave */
+        @keyframes wave {
+            0% {
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.6), 0 0 10px rgba(255, 255, 255, 0.3);
+                transform: translateY(0);
+            }
+            50% {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
+                transform: translateY(-5px);
+            }
+            100% {
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.6), 0 0 10px rgba(255, 255, 255, 0.3);
+                transform: translateY(0);
+            }
+        }
+
+        .wave-text {
+            display: inline-block;
+            animation: wave 2s ease-in-out infinite;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 3em;
             }
             .photos img {
-                max-width: 100px;
+                max-width: 150px;
             }
         }
     </style>
@@ -95,17 +126,23 @@
     </div>
     <div class="photos" id="photoContainer">
         <h2>❤️ Nossas memórias ❤️</h2>
-        <img src="Foto1.jpg" alt="Foto 1">
-        <img src="Foto3.jpg" alt="Foto 2">
-        <img src="Foto2.jpg" alt="Foto 3">
-        <img src="Foto4.jpg" alt="Foto 4">
-        <img src="Foto5.jpg" alt="Foto 5">
-        <p><strong>"Eu sou infinitamente menor do que eu pensava ser, mas eu sou infinitamente maior por ter você."</strong></p>
+        <div class="image-container">
+            <img src="Foto1.jpg" alt="Foto 1">
+            <img src="Foto3.jpg" alt="Foto 2">
+            <img src="Foto2.jpg" alt="Foto 3">
+            <img src="Foto4.jpg" alt="Foto 4">
+            <img src="Foto5.jpg" alt="Foto 5">
+        </div>
+        <p><strong class="wave-text">"Se você é uma onda quebrando, talvez eu possa ser a costa"</strong></p>
     </div>
     <script>
         function showPhotos() {
             const photoContainer = document.getElementById('photoContainer');
-            photoContainer.classList.add('show');
+            // Mostrar o container de fotos e aplicar a transição de fade-in
+            photoContainer.style.display = 'block'; // Exibe o container de fotos
+            setTimeout(() => {
+                photoContainer.classList.add('show'); // Inicia o efeito fade-in
+            }, 10); // Pequeno atraso para permitir que o display block seja aplicado antes da animação
         }
 
         setInterval(() => {
