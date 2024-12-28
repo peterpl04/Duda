@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Algo Especial</title>
+    <title>Mural P+E</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -71,10 +71,10 @@
 </head>
 <body>
     <div class="container">
-        <h1>Nossa História</h1>
-        <p>Quis fazer algo diferente para mostrar o quanto você é especial. Espero que você tenha gostado dessa pequena surpresa!!!</p>
+        <h1>Mural</h1>
+        <p>Dedicado para nós, feito para contar nossa história.</p>
         <div class="heart">❤️</div>
-        <p>Algo simples, mas feito com carinho, porque momentos com você sempre merecem um toque especial.</p>
+        <p>Algo simples, mas feito com carinho, porque tudo com você sempre merece um toque especial.</p>
         <button onclick="showPhotos()">Clique aqui!</button>
     </div>
     <div class="photos" id="photoContainer">
@@ -82,6 +82,8 @@
         <img src="Foto1.jpg" alt="Foto 1">
         <img src="Foto3.jpg" alt="Foto 2">
         <img src="Foto2.jpg" alt="Foto 3">
+        <img src="Foto4.jpg" alt="Foto 4">
+        <img src="Foto5.jpg" alt="Foto 5">
         <p>"Eu sou infinitamente menor do que eu pensava ser, mas eu sou infinitamente maior por ter você."</p>
     </div>
     <script>
@@ -90,6 +92,19 @@
             const photoContainer = document.getElementById('photoContainer');
             photoContainer.style.display = 'block';
         }
+        
+        setInterval(() => {
+            const heart = document.createElement('div');
+            heart.textContent = '❤️';
+            heart.style.position = 'fixed';
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.top = Math.random() * window.innerHeight + 'px';
+            heart.style.opacity = '0.7';
+            heart.style.fontSize = '2em';
+            heart.style.pointerEvents = 'none';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 3000);
+        }, 1000);
     </script>
 </body>
 </html>
